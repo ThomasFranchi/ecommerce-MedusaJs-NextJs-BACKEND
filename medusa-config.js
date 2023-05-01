@@ -44,6 +44,18 @@ const plugins = [
       serve: true,
     },
   },
+  // Local filestorage Medusa plugin added 2023/05/01
+  {
+    resolve: "medusa-plugin-filestorage-local",
+    options: {
+      // The baseurl for your medusajs server
+      serverBaseUrl: process.env.MEDUSA_BACKEND_URL || "http://localhost:9000",
+      // when enabled saves the file as a base64 encoded string inside the database (deleting that row is not yet supported)
+      saveInDatabase: false, // recommended: false
+      // the folder where your files are stored on the server
+      fileLocation: "uploads/persistent/",
+    }
+  },
 ];
 
 const modules = {
